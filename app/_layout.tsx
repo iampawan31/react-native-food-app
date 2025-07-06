@@ -1,6 +1,7 @@
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
+import Toast from 'react-native-toast-message'
 import './globals.css'
 
 const RootLayout = () => {
@@ -18,7 +19,12 @@ const RootLayout = () => {
     if (fontsLoaded) SplashScreen.hideAsync()
   }, [fontsLoaded, error])
 
-  return <Stack screenOptions={{ headerShown: false }} />
+  return (
+    <Fragment>
+      <Stack screenOptions={{ headerShown: false }} />
+      <Toast />
+    </Fragment>
+  )
 }
 
 export default RootLayout
