@@ -1,5 +1,6 @@
 import CartButton from '@/components/CartButton'
 import { images, offers } from '@/constants'
+import * as Sentry from '@sentry/react-native'
 import cn from 'clsx'
 import { Fragment } from 'react'
 import {
@@ -11,6 +12,13 @@ import {
   View
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+
+Sentry.init({
+  dsn: 'https://a3f764ef95c1cc0d66365d8bc7c9ccd9@o4509623242129408.ingest.de.sentry.io/4509623246520400',
+  // Adds more context data to events (IP address, cookies, user, etc.)
+  // For more information, visit: https://docs.sentry.io/platforms/react-native/data-management/data-collected/
+  sendDefaultPii: true
+})
 
 const Index = () => {
   return (

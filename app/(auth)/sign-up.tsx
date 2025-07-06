@@ -1,5 +1,6 @@
 import CustomButton from '@/components/CustomButton'
 import CustomInput from '@/components/CustomInput'
+import { createUser } from '@/lib/appwrite'
 import { Link, router } from 'expo-router'
 import { useState } from 'react'
 import { Text, View } from 'react-native'
@@ -14,7 +15,8 @@ const SignUp = () => {
   })
 
   const submit = async (): Promise<void> => {
-    if (!form.name || !form.email || !form.password) {
+    const { name, email, password } = form
+    if (!name || !email || !password) {
       Toast.show({
         type: 'error',
         text1: 'Please enter valid name, email address & password'
@@ -25,10 +27,17 @@ const SignUp = () => {
     setIsSubmitting(true)
 
     try {
+      await createUser({
+        name,
+        email,
+        password
+      })
+
       Toast.show({
         type: 'success',
         text1: 'User signed up successfully'
       })
+
       router.replace('/')
     } catch (error: any) {
       Toast.show({

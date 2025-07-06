@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react-native'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { Fragment, useEffect } from 'react'
@@ -27,4 +28,4 @@ const RootLayout = () => {
   )
 }
 
-export default RootLayout
+export default Sentry.wrap(RootLayout)
