@@ -1,15 +1,13 @@
 import { Text, View } from 'react-native'
 
-export default function Index() {
+const Index = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      <Text>Welcome to React Native</Text>
+    <View className="flex-1 items-center justify-center bg-white">
+      <Text className="text-4xl font-bold text-center font-quicksand-bold text-blue-500">
+        Welcome to Nativewind!
+      </Text>
     </View>
   )
 }
+
+export default Index
