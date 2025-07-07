@@ -22,6 +22,7 @@ const useAuthStore = create<AuthState>((set) => ({
   setIsAuthenticated: (value) => set({ isAuthenticated: value }),
   setUser: (user) => set({ user }),
   setIsLoading: (value) => set({ isLoading: value }),
+
   fetchAuthenticatedUser: async () => {
     set({ isLoading: true })
 
@@ -35,7 +36,7 @@ const useAuthStore = create<AuthState>((set) => ({
       }
     } catch (error) {
       set({ isAuthenticated: false, user: null })
-      throw new Error(error as string)
+      console.log('fetchAuthenticatedUser error', error)
     } finally {
       set({ isLoading: false })
     }

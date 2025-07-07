@@ -68,6 +68,7 @@ export const signIn = async ({ email, password }: SignInParams) => {
   try {
     const session = appwriteAccount.createEmailPasswordSession(email, password)
   } catch (error) {
+    console.log(error)
     throw new Error(error as string)
   }
 }
