@@ -1,4 +1,4 @@
-import { CreateUserParams, GetMenuParams, SignInParams } from '@/type'
+import { Category, CreateUserParams, GetMenuParams, SignInParams } from '@/type'
 import {
   Account,
   Avatars,
@@ -129,7 +129,7 @@ export const getCategories = async () => {
       appwriteConfig.categoriesCollectionId
     )
 
-    return categories.documents
+    return categories.documents as Category[]
   } catch (error) {
     throw new Error(error as string)
   }
