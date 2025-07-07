@@ -1,6 +1,5 @@
 import CartButton from '@/components/CartButton'
 import { images, offers } from '@/constants'
-import useAuthStore from '@/store/auth.store'
 import * as Sentry from '@sentry/react-native'
 import cn from 'clsx'
 import { Fragment } from 'react'
@@ -22,10 +21,6 @@ Sentry.init({
 })
 
 const Index = () => {
-  const { user } = useAuthStore()
-
-  console.log('USER:', JSON.stringify(user, null, 2))
-
   return (
     <SafeAreaView className="flex-1 bg-white">
       <FlatList
